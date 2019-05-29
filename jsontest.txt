@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" http://localhost:3000/societe -d "{ """nom""":"""Casino""","""type_abonnement""":"""2""","""date_facturation""":"""2019-01-02"""}"
