@@ -1,15 +1,16 @@
 var db = require('../db');
 
-var noteimageprix = {
+var themepointevente = {
 
    
    
 
 
     getreponse: function(id2,pointevente,callback)
-    {        return db.query("select * FROM reponse_pointeVente WHERE reponse_pointeVente.id_societe="+id2+" and reponse_pointeVente.nom='"+pointevente+"'", callback);
+    {        return db.query("select * FROM reponse_pointeVente INNER JOIN questionnaire on questionnaire.id_societe="+id2+" and questionnaire.id=reponse_pointeVente.id_questionnaire and reponse_pointeVente.nom='"+pointevente+"'", callback);
 
-    },
+
+    }
 
 
 
@@ -17,4 +18,4 @@ var noteimageprix = {
 
 }
 
-module.exports = noteimageprix;
+module.exports = themepointevente;

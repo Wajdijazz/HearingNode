@@ -46,7 +46,7 @@ router.get('/:id', function (req, res) {
 
 
     console.log("Get  concurrent", req.body , req.params);
-    concurrent.getConcurrent(id,function(err,rows){
+    concurrent.getAllConcurrentReponse(id,function(err,rows){
 
         if(err) {
             res.status(400).json(err);

@@ -23,6 +23,23 @@ router.get('/:id2/:pointevente', function (req, res) {
         }
     });
 });
+router.get(':/id', function (req, res) {
+  
+
+    console.log("Get reponses GET", req.body , req.params);
+    themepointevente.getAllreponse(id,function(err,rows){
+       
+
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(rows);
+           
+        }
+    });
+});
 
 
 

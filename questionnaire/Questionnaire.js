@@ -12,6 +12,10 @@ var Questionnaire = {
     getquestionnaire: function(id,callback)
     {
         return db.query('SELECT * from questionnaire WHERE id='+id, callback);
+    },
+    DeleteQuestionnaireById: function (id,id_societe, callback) {
+        return db.query('DELETE from questionnaire WHERE  questionnaire.id='+id+'  and questionnaire.id_societe='+id_societe, callback);
+        	
     }
 }
 

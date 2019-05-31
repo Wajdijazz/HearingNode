@@ -23,9 +23,10 @@ router.post('/', function (req, res) {
 
 
 
-router.get('/', function (req, res) {
+router.get('/:id', function (req, res) {
+    var id= req.params.id;
 
-    pointeVenteReponse.getreponsepointevente(function(err,rows){
+    pointeVenteReponse.getreponsepointevente(id,function(err,rows){
 
         if(err) {
             res.status(400).json(err);
@@ -37,6 +38,8 @@ router.get('/', function (req, res) {
         }
     });
 });
+
+
 
 
 
