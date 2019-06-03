@@ -45,8 +45,7 @@ var ServicesController = require('./services/servicesController');
 app.use('/services',ServicesController);
 
 
-var ChoixQuestionController = require('./choix-questionnaire/choix-questionnaireController');
-app.use('/choix-questionnaire',ChoixQuestionController);
+
 
 
 
@@ -56,70 +55,6 @@ app.use('/point-vente-id',pointVenteIdController);
 var reponsesController = require('./reponses/reponsesController');
 app.use('/reponses',reponsesController);
 
-
-var npsController = require('./nps/npsController');
-app.use('/nps',npsController);
-
-var noteimageprixcontroller= require('./noteImagePrix/noteimageprixController');
-app.use('/noteImagePrix',noteimageprixcontroller);
-
-
-
-
-var promotionsController = require('./promotions/promotionsController');
-app.use('/promotions',promotionsController);
-
-
-
-
-var noteQualiteProduitController = require('./noteQualiteProduit/noteQualiteProduitController');
-app.use('/noteQualiteProduit',noteQualiteProduitController);
-
-
-
-var noteAmabilitePersonnelController = require('./noteAmabilitePersonnel/noteAmabilitePersonnelController');
-app.use('/noteAmabilitePersonnel',noteAmabilitePersonnelController);
-
-
-
-var noteRapportQualitePrixController = require('./noteRapportQualitePrix/noteRapportQualitePrixController');
-app.use('/noteRapportQualitePrix',noteRapportQualitePrixController);
-
-
-
-
-var noteRapiditePayerController = require('./noteRapiditePayer/noteRapiditePayerController');
-app.use('/noteRapiditePayer',noteRapiditePayerController);
-
-
-
-var noteQualiteMaterielController= require('./noteQualiteMateriel/noteQualiteMaterielController');
-app.use('/noteQualiteMateriel',noteQualiteMaterielController);
-
-
-
-var noteChoixProduitsController= require('./noteChoixProduits/noteChoixProduitsController');
-app.use('/noteChoixProduits',noteChoixProduitsController);
-
-
-
-
-var noteFaciliteTrouverProduitController= require('./noteFaciliteTrouverProduit/noteFaciliteTrouverProduitController');
-app.use('/noteFaciliteTrouverProduit',noteFaciliteTrouverProduitController);
-
-
-
-
-var notePrixProduitBioController= require('./notePrixProduitBio/notePrixProduitBioController');
-app.use('/notePrixProduitBio',notePrixProduitBioController);
-
-
-
-
-
-
-var noteQualiteProduitBioController= require('./noteQualiteProduitBio/noteQualiteProduitBioController');
-app.use('/noteQualiteProduitBio',noteQualiteProduitBioController);
 
 
 

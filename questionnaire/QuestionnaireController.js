@@ -61,4 +61,19 @@ router.delete('/:id/:id_societe', function (req, res) {
     });
 });
 
+
+router.delete('/:id_societe', function (req, res) {
+    var id_societe=req.params.id_societe
+
+    Questionnaire.DeleteQuestionnaireByIdSociete(id_societe,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
+
 module.exports = router;

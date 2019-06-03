@@ -7,7 +7,7 @@ var PointVente = {
     },
     getpointsventeById: function(id,callback)
     {
-        return db.query('SELECT * from pointvente WHERE pointvente.id='+id, callback);
+        return db.query('SELECT * from pointvente WHERE pointvente.id_societe='+id, callback);
     },
     createpointvente: function (PointVente, callback) {
         return db.query('Insert into pointvente(id_societe,nom,adresse) values(?, ?, ?)',
@@ -15,6 +15,10 @@ var PointVente = {
     },
     DeletePointeVenteById: function (id,id_societe, callback) {
         return db.query('DELETE from pointvente WHERE  pointvente.id='+id+'  and pointvente.id_societe='+id_societe, callback);
+        	
+    },
+    DeletePointeVenteByIdSociete: function (id_societe, callback) {
+        return db.query('DELETE from pointvente WHERE pointvente.id_societe='+id_societe, callback);
         	
     }
 }

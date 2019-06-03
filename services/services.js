@@ -19,6 +19,11 @@ getpointventeBySociete: function(id,callback)
     {
         return db.query('select * FROM reponses INNER JOIN questionnaire on questionnaire.id_pointvente='+id1+' and questionnaire.id_societe='+id2+' and questionnaire.id=reponses.id_questionnaire and reponses.theme_key="Fin Sondage"', callback);
     },
+    deleteUser: function(id,callback)
+    {
+        return db.query('DELETE users from users WHERE users.id_societe='+id, callback);
+    },
+
 
 
 

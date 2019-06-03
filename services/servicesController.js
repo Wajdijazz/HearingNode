@@ -54,5 +54,20 @@ router.get('/:id1/:id2', function (req, res) {
         }
     });
 });
+
+router.delete('/:id', function (req, res) {
+    var id= req.params.id;
+
+    console.log("societe deleteed", req.body);
+    Services.deleteUser(id,function(err){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
 module.exports = router;
 console.log(router)

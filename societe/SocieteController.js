@@ -44,4 +44,19 @@ router.post('/', function (req, res) {
     });
 });
 
+router.delete('/:id', function (req, res) {
+    var id= req.params.id;
+
+    console.log("societe deleteed", req.body);
+    Societe.DeletePointeVenteById(id,function(err){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
+
 module.exports = router;
