@@ -3,6 +3,8 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json())
+var bcrypt = require('bcryptjs');
+
 
 require('./Administartion/router/router.js')(app);
  
@@ -30,7 +32,8 @@ app.use('/question',QuestionController);
 var ThemesController = require('./themes/ThemesController');
 app.use('/themes',ThemesController);
 
-
+var ChoixQuestionController = require('./choix-questionnaire/choix-questionnaireController');
+app.use('/choix-questionnaire',ChoixQuestionController);
 
 
 var QuestionController = require('./Questions/QuestionsController');
@@ -47,10 +50,6 @@ app.use('/services',ServicesController);
 
 
 
-
-
-var pointVenteIdController = require('./point-vente-id/point-vente-idController');
-app.use('/point-vente-id',pointVenteIdController);
 
 var reponsesController = require('./reponses/reponsesController');
 app.use('/reponses',reponsesController);
@@ -78,12 +77,19 @@ app.use('/themeconcurrent',themeconcurrentController);
  
  
 const Role = db.role;
+const USER = db.user;
+var pass="admin12345"
  
 // force: true will drop the table if it already exists
 db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync with { force: true }');
   initial();
+
 });
+db.sequelize.sync({force: true}).then(() => {
+  initialAdmin()
+
+});
+
 
 function initial() {
     Role.create({
@@ -100,8 +106,31 @@ function initial() {
       id: 3,
       name: "ADMIN"
     });
+    
+
   }
 
+  function initialAdmin() {
+   USER.create({
+    id: 1,
+    id_societe: null,
+    name : "admin",
+    username : "admin",
+    email: "admin@gmail.com",
+    roles : ["admin"],
+    password: bcrypt.hashSync(pass, 8)
+  
+  }).then(user => {
+  Role.findAll({
+    where: {
+     
+    }
+  }).then(roles => {
+    user.setRoles(roles)
+  })
+})
+
+}
 
 
 module.exports = app;
