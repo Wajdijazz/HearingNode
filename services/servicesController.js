@@ -69,5 +69,26 @@ router.delete('/:id', function (req, res) {
         }
     });
 });
+
+
+router.put('/:id', function (req, res) {
+    var id= req.params.id;
+
+    console.log("societe updated", req.body);
+    Services.UpdatesocieteById(id,req.body,function(err){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+
+        else{
+            res.json(req.body);
+          
+           
+
+             
+        }
+    });
+});
 module.exports = router;
 console.log(router)

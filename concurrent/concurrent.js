@@ -19,7 +19,12 @@ var concurrent = {
    {
  
      return db.query('SELECT * from reponse_concurrent INNER JOIN questionnaire on questionnaire.id_societe='+id+' and questionnaire.id=reponse_concurrent.id_questionnaire', callback);
-    }
+    },
+    DeleteReponseConcurrentByPointVente: function (pointevente, callback) {
+      return db.query("DELETE  from reponse_concurrent  WHERE  reponse_concurrent.pointevente="+"'"+pointevente+"'", callback);
+        
+  
+}
 
 }
 

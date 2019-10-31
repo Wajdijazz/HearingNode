@@ -31,5 +31,20 @@ router.get('/:id/:pointevente/:concurrent', function (req, res) {
         }
     });
 });
+
+router.delete('/:id', function (req, res) {
+    var id=req.params.id
+
+    themeconcurrent.DeleteReponseConcurrentByIdQuestionnaire(id,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
+
+
 module.exports = router;
-console.log(router)

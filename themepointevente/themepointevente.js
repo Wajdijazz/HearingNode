@@ -11,10 +11,15 @@ var themepointevente = {
 
 
     },
-    DeleteQuestionnaireById: function (id,id_societe, callback) {
-        return db.query('DELETE questionnaire,reponse_pointeVente,reponse_concurrent from questionnaire JOIN reponse_pointeVente,reponse_concurrent  WHERE  questionnaire.id='+id+'  and questionnaire.id_societe='+id_societe, callback);
+
+    DeleteReponseByIdQuestionnaire: function (id, callback) {
+        return db.query('DELETE  from reponse_pointeVente  WHERE  reponse_pointeVente.id_questionnaire='+id, callback);
         	
     },
+    
+ 
+
+
 
 
 

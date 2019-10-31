@@ -24,7 +24,10 @@ getpointventeBySociete: function(id,callback)
         return db.query('DELETE users from users WHERE users.id_societe='+id, callback);
     },
 
-
+    UpdatesocieteById: function (id,Services,callback) {
+        return db.query('UPDATE users SET users.name=? WHERE users.id_societe='+id, 
+        [Services.name], callback);
+    },
 
 
 

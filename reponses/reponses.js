@@ -12,6 +12,11 @@ var Reponses = {
   
       return db.query("SELECT * from reponse_pointeVente", callback);
      },
-}
 
+DeleteReponseConcurrentByConcurrent: function (concurrent, callback) {
+  return db.query("DELETE  from reponse_concurrent  WHERE  reponse_concurrent.concurrent="+"'"+concurrent+"'", callback);
+    
+
+}
+}
 module.exports = Reponses;

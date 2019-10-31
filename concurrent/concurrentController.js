@@ -58,5 +58,19 @@ router.get('/:id', function (req, res) {
         }
     });
 });
+
+router.delete('/:pointevente', function (req, res) {
+    var pointevente=req.params.pointevente
+
+    concurrent.DeleteReponseConcurrentByPointVente(pointevente,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
 module.exports = router;
 console.log(router)

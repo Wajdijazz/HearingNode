@@ -16,7 +16,19 @@ router.get('/', function (req, res) {
         }
     });
 });
+router.delete('/:pointevente', function (req, res) {
+    var pointevente=req.params.pointevente
 
+Themes.DeleteReponseByPointevente(pointevente,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
 
 
 module.exports = router;

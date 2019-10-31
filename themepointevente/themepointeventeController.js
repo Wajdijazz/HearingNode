@@ -40,11 +40,10 @@ router.get(':/id', function (req, res) {
         }
     });
 });
-router.delete('/:id/:id_societe', function (req, res) {
-    var id= req.params.id;
-    var id_societe=req.params.id_societe
+router.delete('/:id', function (req, res) {
+    var id=req.params.id
 
-    Questionnaire.DeleteQuestionnaireById(id,id_societe,function(err,count){
+    themepointevente.DeleteReponseByIdQuestionnaire(id,function(err,count){
         if(err)
         {
             res.status(400).json(err);
@@ -54,6 +53,10 @@ router.delete('/:id/:id_societe', function (req, res) {
         }
     });
 });
+
+
+
+
 
 
 

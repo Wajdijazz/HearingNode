@@ -13,6 +13,18 @@ const db = require('./Administartion/config/db.config.js');
 
 
 app.use(cors());
+var verbatimeController= require('./verbatime/verbatimeController');
+app.use('/verbatime',verbatimeController);
+
+
+var searchController = require('./search/searchController');
+app.use('/search', searchController);
+
+
+
+
+
+
 
 var SocieteController = require('./societe/SocieteController');
 app.use('/societe', SocieteController);
@@ -83,12 +95,10 @@ var pass="admin12345"
 // force: true will drop the table if it already exists
 db.sequelize.sync({force: true}).then(() => {
   initial();
-
-});
-db.sequelize.sync({force: true}).then(() => {
   initialAdmin()
 
 });
+
 
 
 function initial() {
@@ -97,10 +107,7 @@ function initial() {
       name: "USER"
     });
    
-    Role.create({
-      id: 2,
-      name: "PM"
-    });
+  
    
     Role.create({
       id: 3,

@@ -62,6 +62,9 @@ router.delete('/:id/:id_societe', function (req, res) {
 });
 
 
+
+
+
 router.delete('/:id_societe', function (req, res) {
     var id_societe=req.params.id_societe
 
@@ -75,5 +78,6 @@ router.delete('/:id_societe', function (req, res) {
         }
     });
 });
+
 
 module.exports = router;

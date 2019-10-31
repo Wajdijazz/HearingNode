@@ -30,4 +30,35 @@ router.post('/', function (req, res) {
     });
 });
 
+
+
+router.delete('/:id', function (req, res) {
+    var id=req.params.id
+
+    Details.DeleteReponseByIdQuestionnaire(id,function(err,count){
+        if(err)
+        {
+            res.status(400).json(err);
+        }
+        else{
+            res.json(req.body);
+        }
+    });
+});
+
+
+router.get('/:id', function (req, res) {
+    var id= req.params.id;
+
+    Details.getparametreById(id,function(err,rows){
+        if(err) {
+            res.status(400).json(err);
+        }
+        else
+        {
+            res.json(rows);
+
+        }
+    });
+});
 module.exports = router;
